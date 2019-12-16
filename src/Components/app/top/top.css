@@ -1,0 +1,86 @@
+.type-changes-value ,
+.value-number ,
+.value-percentage {
+    float: right;
+}
+
+.top {
+    height: 365px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(back.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    min-width: 1200px;
+}
+
+.Budget-form-info {
+    position: absolute;
+    width: 350px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+}
+
+#Date-Time {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+#Budget-calculator {
+    text-align: center;
+    font-weight: 300;
+    font-size: 46px;
+    letter-spacing: 2px;
+    margin: 20px 0;
+}
+
+#Budget-all-changes {
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.type-changes {
+    padding: 15px 12.5px;
+    display: table;
+    width: 100%;
+}
+
+#Budget-type-income {
+    background-color: #28B9B5;
+}
+
+#Budget-type-expenses {
+    background-color: #FF5049;
+}
+
+.type-changes-name {
+    text-transform: uppercase;
+    float: left;
+}
+
+.value-percentage {
+    background-color: rgba(255,255,255,0.3); 
+}
+
+.value-percentage ,
+.item-percentage {
+    text-align: center;
+    margin: auto 0 auto 12.5px;
+    padding: 2.5px 7.5px;
+    width: 42px;
+    height: auto;
+    font-size: 11px;
+    border-radius: 3px;
+}
+
+.Income-list .item-percentage {
+    background-color: rgba(40,185,181,0.3); 
+    color: rgba(40,185,181,1); 
+}
+
+.Expenses-list .item-percentage {
+    background-color: rgba(255,80,73,0.3); 
+    color: rgba(255,80,73,1); 
+}

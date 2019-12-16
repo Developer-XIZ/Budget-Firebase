@@ -1,0 +1,43 @@
+#Budget-archive {
+    width: 1000px;
+    margin: 60px auto;
+}
+
+.Income .item-delete-button ,
+.Income-title ,
+.Income-list .item-value{
+    color: #28B9B5;
+}
+
+.Expenses .item-delete-button ,
+.Expenses-list .item-value ,
+.Expenses-title{
+    color: #FF5049;
+}
+
+.Income-list .item-percentage {
+    background-color: rgba(40,185,181,0.3); 
+    color: rgba(40,185,181,1); 
+}
+
+.Expenses-list .item-percentage {
+    background-color: rgba(255,80,73,0.3); 
+    color: rgba(255,80,73,1); 
+}
+
+.Income , 
+.Expenses {
+    float: left;
+    width: 475px;
+}
+
+.Income {
+    margin-right: 50px;
+}
+
+h2 {
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
