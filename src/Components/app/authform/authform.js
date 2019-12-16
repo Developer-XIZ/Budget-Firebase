@@ -2,10 +2,10 @@ import React from "react";
 import KeyPress from './components/keypress';
 import axios from 'axios';
 import "./authform.css";
-require('dotenv').config();
 
 const AuthForm = ({Login}) => {
     const Sign = (e) => {
+        console.log(process.env.REACT_APP_API_KEY);
         if(e.target.classList[1] === "enabled") {
             const Elements = e.target.parentNode.children;
             const Email = Elements[0].children[1].value;
@@ -49,6 +49,8 @@ const AuthForm = ({Login}) => {
                             Income: [],
                             Expenses: []
                         } : budgets[BudgetlocalId].budgets;
+                        budgets.Income = budgets.Income === undefined ? [] : budgets.Income;
+                        budgets.Expenses = budgets.Expenses === undefined ? [] : budgets.Expenses;
                         Login(BudgetlocalId , budgets);
                     }
                     catch(error){
@@ -61,8 +63,8 @@ const AuthForm = ({Login}) => {
                 const authData = {email , password , returnSecure: true}
                 if(Signtype === "Sign up") {        
                     try{
-                        const User = await axios.post(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${process.env.API_KEY}` , authData);
-                        BudgetBase(User.data.l.ocalId , Signtype);
+                        const User = await axios.post(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${process.env.REACT_APP_API_KEY}` , authData);
+                        BudgetBase(User.data.localId , Signtype);
                     }
                     catch(error){
                         if(error.toString() === "Error: Network Error") {
@@ -78,7 +80,7 @@ const AuthForm = ({Login}) => {
                 }
                 else if("Sign in") {
                     try{
-                        const User = await axios.post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.API_KEY}` , authData);
+                        const User = await axios.post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.REACT_APP_API_KEY}` , authData);
                         BudgetBase(User.data.localId , Signtype);
                     }
                     catch(error) {
