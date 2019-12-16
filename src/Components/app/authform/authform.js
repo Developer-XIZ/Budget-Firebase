@@ -2,6 +2,7 @@ import React from "react";
 import KeyPress from './components/keypress';
 import axios from 'axios';
 import "./authform.css";
+require('dotenv').config();
 
 const AuthForm = ({Login}) => {
     const Sign = (e) => {
@@ -60,8 +61,8 @@ const AuthForm = ({Login}) => {
                 const authData = {email , password , returnSecure: true}
                 if(Signtype === "Sign up") {        
                     try{
-                        const User = await axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBpuiDQeU8OptWjFqwPx0eELrnkZWTse5o' , authData);
-                        BudgetBase(User.data.localId , Signtype);
+                        const User = await axios.post(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${process.env.API_KEY}` , authData);
+                        BudgetBase(User.data.l.ocalId , Signtype);
                     }
                     catch(error){
                         if(error.toString() === "Error: Network Error") {
@@ -77,7 +78,7 @@ const AuthForm = ({Login}) => {
                 }
                 else if("Sign in") {
                     try{
-                        const User = await axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBpuiDQeU8OptWjFqwPx0eELrnkZWTse5o' , authData);
+                        const User = await axios.post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.API_KEY}` , authData);
                         BudgetBase(User.data.localId , Signtype);
                     }
                     catch(error) {
